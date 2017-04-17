@@ -41,7 +41,7 @@ window.onload = function() {
                     method = message;
                 }
 
-                api_methods(method);
+                api_methods(method,params);
             });
 
             dialog.receiveText("Client connected, ready to send/receive messages!");

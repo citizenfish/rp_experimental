@@ -41,7 +41,8 @@ DISTFILES += \
     leaflet.html \
     qt_js_api.js \
     map_controls.js \
-    drmc_css.css
+    drmc_css.css \
+    virtual_host.conf
 
 install_it.path = $$PWD
 install_it.files = *

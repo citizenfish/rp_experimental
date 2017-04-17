@@ -27,8 +27,16 @@
     <property name="title">
      <string>Route</string>
     </property>
+    <widget class="QMenu" name="menuLoad_Route">
+     <property name="title">
+      <string>Load Route</string>
+     </property>
+     <addaction name="separator"/>
+     <addaction name="actionPostgres"/>
+     <addaction name="actionFile"/>
+    </widget>
     <addaction name="actionNew_Route"/>
-    <addaction name="actionLoad_Route"/>
+    <addaction name="menuLoad_Route"/>
     <addaction name="actionSave_Route"/>
     <addaction name="actionQuit"/>
    </widget>
@@ -48,11 +56,6 @@
     <string>New Route</string>
    </property>
   </action>
-  <action name="actionLoad_Route">
-   <property name="text">
-    <string>Load Route</string>
-   </property>
-  </action>
   <action name="actionSave_Route">
    <property name="text">
     <string>Save Route</string>
@@ -61,6 +64,16 @@
   <action name="actionQuit">
    <property name="text">
     <string>Quit</string>
+   </property>
+  </action>
+  <action name="actionPostgres">
+   <property name="text">
+    <string>Postgres</string>
+   </property>
+  </action>
+  <action name="actionFile">
+   <property name="text">
+    <string>File</string>
    </property>
   </action>
  </widget>
@@ -99,8 +112,25 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>actionFile</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>loadGPXFile()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>201</x>
+     <y>72</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>516</x>
+     <y>364</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>newRoute()</slot>
+  <slot>loadGPXFile()</slot>
  </slots>
 </ui>
