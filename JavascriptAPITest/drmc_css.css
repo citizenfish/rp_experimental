@@ -1,0 +1,15 @@
+#mapid {
+    top: 40px;
+    width: 1600px;
+    height: 1400px
+}
+
+#messagebox {
+    top: 0px;
+    left: 0px;
+    height: 35px;
+    width: 1000px;
+    border-width: 2px;
+    border-style: solid;
+    position: absolute;
+}

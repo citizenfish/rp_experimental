@@ -35,11 +35,13 @@ HEADERS  += mainwindow.h \
 FORMS    += mainwindow.ui
 
 DISTFILES += \
-    index.html \
     qwebchannel.js \
     raster_mapfile.map \
     epsg \
-    leaflet.html
+    leaflet.html \
+    qt_js_api.js \
+    map_controls.js \
+    drmc_css.css
 
 install_it.path = $$PWD
 install_it.files = *

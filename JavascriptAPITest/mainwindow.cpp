@@ -15,9 +15,12 @@ MainWindow::MainWindow(QWidget *parent) :
 
 }
 
+/* This method receives messages from the javascript client */
 void MainWindow::receiveText(const QString &text){
 
-    //emit sendText(QString("Foo to the fooo fooo"));
+    qDebug() << text;
+
+    emit sendText(QString("Foo to the fooo fooo"));
 }
 
 MainWindow::~MainWindow()

@@ -30,8 +30,6 @@ int main(int argc, char *argv[])
     /* Connect the channel to the Mainwindow object so I can pass messages back an forth*/
     channel.registerObject(QStringLiteral("mainWindow"), &w);
 
-
-
     w.show();
 
 
