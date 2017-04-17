@@ -25,9 +25,30 @@ function init_map(){
 
 function add_gpx_to_map(gpx) {
 
-    new L.GPX(gpx, {async: true}).on('loaded', function(e) {
-        map.fitBounds(e.target.getBounds());
-    }).addTo(map);
+    var gpxLayer = new L.GPX(gpx, {async: true});
+        gpxLayer.on('loaded', function(e) { map.fitBounds(e.target.getBounds());}); //.addTo(map);
+
+
+        map.addLayer(gpxLayer);
+
+    var options = {
+        position: 'topleft',
+        draw : {
+            polygon: false,
+            circle: false,
+            rectangle: false,
+            marker: false,
+            line: false
+        },
+
+        edit: {
+            featureGroup: gpxLayer,
+            remove: false
+        }
+    };
+
+    var drawControl = new L.Control.Draw(options);
+    map.addControl(drawControl);
 }
 
 function add_route_edit_layer() {

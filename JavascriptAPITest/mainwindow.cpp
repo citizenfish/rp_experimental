@@ -67,12 +67,11 @@ void MainWindow::loadGPXFile()
     //Make a JSON API call, I need to find better way to do nesting
     QJsonObject apiCall;
     QJsonObject params;
-
     apiCall["method"] = "viewGPX";
     params["gpx"]  = gpxData;
     apiCall["params"] = params;
 
-   emit javascriptApi(apiCall);
+    emit javascriptApi(apiCall);
 }
 
 MainWindow::~MainWindow()
