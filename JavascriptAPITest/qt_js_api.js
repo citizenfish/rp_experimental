@@ -24,10 +24,36 @@ window.onload = function() {
 
             dialog.sendText.connect(function(message) {
                 $('#messagebox').html('<p>' + message + '</p>');
-                console.log(message);
+
+                var params,method;
+                try {
+                    params =  JSON.parse(message);
+                    method = params.method;
+                    params = params.params;
+                } catch(e) {
+
+                    method = message;
+                }
+
+                api_methods(method);
             });
 
             dialog.receiveText("Client connected, ready to send/receive messages!");
         });
     }
 };
+
+
+function api_methods(method, param) {
+
+    switch(method) {
+
+      case 'newroute':
+          if(map.editmode === undefined || map.editmode !== 'createroute') {
+              map.editmode = 'newroute';
+              add_route_edit_layer();
+          }
+
+          break;
+    };
+}

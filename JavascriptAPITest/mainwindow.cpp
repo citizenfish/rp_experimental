@@ -20,7 +20,18 @@ void MainWindow::receiveText(const QString &text){
 
     qDebug() << text;
 
-    emit sendText(QString("Foo to the fooo fooo"));
+    //emit sendText(QString("Foo to the fooo fooo"));
+}
+
+void MainWindow::javascriptApi(const QString &command)
+{
+    qDebug() << 'Command' << command;
+    emit sendText(command);
+}
+
+void MainWindow::newRoute()
+{
+    emit sendText(QString("newroute"));
 }
 
 MainWindow::~MainWindow()

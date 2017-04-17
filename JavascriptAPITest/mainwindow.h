@@ -33,7 +33,8 @@ public slots:
         This slot is invoked from the HTML client side and the text displayed on the server side.
     */
     void receiveText(const QString &text);
-
+    void javascriptApi(const QString &command); //Pass commands to Javascript
+    void newRoute(); // Create a new route
 
 };
 
