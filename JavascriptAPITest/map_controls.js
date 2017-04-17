@@ -23,6 +23,12 @@ function init_map(){
 
 }
 
+function add_gpx_to_map(gpx) {
+
+    new L.GPX(gpx, {async: true}).on('loaded', function(e) {
+        map.fitBounds(e.target.getBounds());
+    }).addTo(map);
+}
 
 function add_route_edit_layer() {
 
@@ -45,22 +51,10 @@ function add_route_edit_layer() {
                         weight: 10
                     }
                 },
-                polygon: {
-                    allowIntersection: false, // Restricts shapes to simple polygons
-                    drawError: {
-                        color: '#e1e100', // Color the shape will turn when intersects
-                        message: '<strong>Oh snap!<strong> you can\'t draw that!' // Message that will show when intersect
-                    },
-                    shapeOptions: {
-                        color: '#bada55'
-                    }
-                },
-                circle: false, // Turns off this drawing tool
-                rectangle: {
-                    shapeOptions: {
-                        clickable: false
-                    }
-                },
+                //false turns off the tools that we don't want
+                polygon: false,
+                circle: false,
+                rectangle: false,
                 marker: {
                     icon: new MyCustomMarker()
                 }

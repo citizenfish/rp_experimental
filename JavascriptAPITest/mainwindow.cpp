@@ -20,8 +20,9 @@ void MainWindow::receiveText(const QString &text){
 
     qDebug() << text;
 
-    //emit sendText(QString("Foo to the fooo fooo"));
 }
+
+/* This method sends commands to the javascript client */
 
 void MainWindow::javascriptApi(const QString &command)
 {
