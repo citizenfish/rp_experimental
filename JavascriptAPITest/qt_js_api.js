@@ -19,32 +19,20 @@ window.onload = function() {
     {
         //output("WebSocket connected, setting up QWebChannel.");
         new QWebChannel(socket, function(channel) {
-            // make dialog object accessible globally
-            window.dialog = channel.objects.mainWindow;
+
+            window.wc = channel.objects.webConnector;
 
             /*
                 This is where we receive messages from QT
-                It will either be a single TEXT command or a json object of structure {method : 'foo', params : {foo :bar, foo1: bar1...}}
+                a json object of structure {method : 'foo', params : {foo :bar, foo1: bar1...}}
                 The method is used to call the relevant internal javascript function
             */
 
-            dialog.sendText.connect(function(message) {
-                $('#messagebox').html('<p>' + message + '</p>');
-
-                var params,method;
-                try {
-                    params =  JSON.parse(message);
-                    method = params.method;
-                    params = params.params;
-                } catch(e) {
-
-                    method = message;
-                }
-
-                api_methods(method,params);
+            wc.sendAPICall.connect(function(message) {
+                api_methods(message.method,message.params);
             });
 
-            dialog.receiveText("Client connected, ready to send/receive messages!");
+            wc.wc_api_interface_receive({message : "Client connected, ready to send/receive messages!"});
         });
     }
 };

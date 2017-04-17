@@ -26,11 +26,13 @@ DEFINES += "BUILD_DIR=\"\\\""$$PWD"\\\"\""
 SOURCES += main.cpp\
         mainwindow.cpp \
     websockettransport.cpp \
-    websocketclientwrapper.cpp
+    websocketclientwrapper.cpp \
+    webconnector.cpp
 
 HEADERS  += mainwindow.h \
     websockettransport.h \
-    websocketclientwrapper.h
+    websocketclientwrapper.h \
+    webconnector.h
 
 FORMS    += mainwindow.ui
 

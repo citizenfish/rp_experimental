@@ -14,7 +14,7 @@ function init_map(){
         osm:  L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw',
                           {maxZoom: 18,id: 'mapbox.streets'}),
 
-        os:    L.tileLayer.wms('http://localhost/cgi-bin/mapserv.ngx?map=/home/daveb/Development/JavascriptAPITest/raster_mapfile.map',
+        os:    L.tileLayer.wms('http://localhost/cgi-bin/mapserv.ngx?map=/opt/nautoguide/mapfiles/raster_mapfile.map',
                             {layers: 'osraster_paid'})
     };
 

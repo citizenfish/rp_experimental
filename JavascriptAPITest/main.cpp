@@ -2,8 +2,10 @@
 #include <QApplication>
 #include <QtWebSockets/QWebSocketServer>
 #include <QWebChannel>
+#include <QObject>
 #include "websocketclientwrapper.h"
 #include "websockettransport.h"
+#include "webconnector.h"
 
 int main(int argc, char *argv[])
 {
@@ -27,8 +29,13 @@ int main(int argc, char *argv[])
                      &channel, &QWebChannel::connectTo);
 
 
-    /* Connect the channel to the Mainwindow object so I can pass messages back an forth*/
-    channel.registerObject(QStringLiteral("mainWindow"), &w);
+    /* Connect the channel to the WebConnecor object so I can pass messages back an forth*/
+    WebConnector wc;
+    channel.registerObject(QStringLiteral("webConnector"), &wc);
+
+    /* Connnect MainWindow signals to webconnector slots */
+    QObject::connect(&w, &MainWindow::sendAPICall, &wc, &WebConnector::wc_api_interface_send);
+    QObject::connect(&wc, &WebConnector::receiveAPICall, &w, &MainWindow::receiveAPICall);
 
     w.show();
 
