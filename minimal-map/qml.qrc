@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>MainForm.ui.qml</file>
+        <file>MainMenu.qml</file>
+        <file>MapRouteLine.qml</file>
+        <file>RoutePoint.qml</file>
+        <file>main.cpp</file>
+        <file>images/marker.png</file>
+    </qresource>
+</RCC>
