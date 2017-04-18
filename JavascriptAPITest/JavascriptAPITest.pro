@@ -42,9 +42,11 @@ DISTFILES += \
     epsg \
     leaflet.html \
     qt_js_api.js \
-    map_controls.js \
     drmc_css.css \
-    virtual_host.conf
+    virtual_host.conf \
+    openlayers.html \
+    ol_map_controls.js \
+    leaflet_map_controls.js
 
 install_it.path = $$PWD
 install_it.files = *
