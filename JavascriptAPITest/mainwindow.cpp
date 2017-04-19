@@ -10,7 +10,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     /* This sets up my web view and sticks it into the centre of the screen */
     QWebEngineView  *webView = new QWebEngineView(this);
-    QUrl url = QUrl::fromLocalFile(BUILD_DIR "/leaflet.html");
+    QUrl url = QUrl::fromLocalFile(BUILD_DIR "/openlayers.html");
     webView->setUrl(url);
     setCentralWidget(webView);
 
