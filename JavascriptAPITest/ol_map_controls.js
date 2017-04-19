@@ -119,4 +119,5 @@ function add_gpx_to_map(gpx) {
     gpxFeatures = gpxFormat.readFeatures(gpx,{dataProjection:'EPSG:4326', featureProjection:'EPSG:3857'});
     gpxLayer.getSource().addFeatures(gpxFeatures);
     map.addLayer(gpxLayer);
+    gpxLayer.setVisible(true);
 }

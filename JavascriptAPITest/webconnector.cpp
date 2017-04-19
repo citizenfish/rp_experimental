@@ -7,7 +7,7 @@ WebConnector::WebConnector(QObject *parent) : QObject(parent)
 
 void WebConnector::wc_api_interface_send(const QJsonObject &params)
 {
-    qDebug() << "SEND TO JS API " << params;
+    //qDebug() << "SEND TO JS API " << params;
     emit sendAPICall(params);
 }
 
